@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-14T21:07:56.834Z</updated>
+  <updated>2020-10-14T21:45:11.603Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,14 @@
     <link href="http://example.com/2020/10/13/Computer-Architecture/"/>
     <id>http://example.com/2020/10/13/Computer-Architecture/</id>
     <published>2020-10-14T04:44:02.000Z</published>
-    <updated>2020-10-14T21:07:56.834Z</updated>
+    <updated>2020-10-14T21:45:11.603Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/img/CA/control.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p>#Computer Architecture<br>##Chapter 1<br>###Main formula<br>####CPU_TIME<br><img src="/img/CA/1_01.jpg" alt="CPU_Time"><br>CPU TIME = execution time<br>CPU TIME = instructions * CPI * cycle time<br>CPU TIME = (instructions * CPI) / clock rate<br>CPU TIME = clock cycles / clock rate<br>CPU TIME = (Σ(instructions * CPI)) / clock rate</p><p>####Instruction Count &amp; CPI<br><img src="/img/CA/1_02.jpg" alt="Instruction"><br>instructions = clock cycles / cycles per instruction<br>instructions = CPU TIME / CPI / cycle time<br>instructions = CPU TIME * clock rate / CPI  </p><p>clock cycles = Σ(instructions * CPI)<br>clock cycles = instructions * CPI  </p><p>CPI = clock cycles / instructions<br>CPI = Σ ( CPI<sub>i</sub> * (instructions<sub>i</sub> / instructions))</p><p>####BIG Picture<br><img src="/img/CA/1_03.jpg" alt="Instruction"><br>####Pitfall: Amdahl’s Law<br><img src="/img/CA/1_04.jpg" alt="Instruction"><br>####MIPS &amp; IPS<br><img src="/img/CA/1_05.jpg" alt="Instruction"><br>IPS = (instructions / CPU_TIME) = clock_rate / CPI  </p><p>MIPS = instructions / (execution_time * 10 ^ 6)<br>MIPS = (instructions) / ((instructions * CPI / clock_rate) * 10 ^ 6)<br>MIPS = clock_rate / (CPI * 10 ^ 6)  </p><p><img src="/img/CA/control.jpg"></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/img/CA/control.jpg&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;#Computer Architecture&lt;br&gt;##Chapter 1&lt;br&gt;###Main formula&lt;br&gt;####CPU_TIME&lt;br&gt;&lt;img src=&quot;/img/CA/1_01.jpg&quot; alt=&quot;CPU_Time&quot;&gt;&lt;br&gt;CPU TIME = exe</summary>
       
     
     
