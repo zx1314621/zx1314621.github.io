@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2020/10/13/Computer-Architecture/</loc>
     
-    <lastmod>2020-10-14</lastmod>
+    <lastmod>2020-10-15</lastmod>
     
   </url>
   
@@ -32,11 +32,18 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-10-14</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>http://example.com/tags/SCU-Campus/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 
   

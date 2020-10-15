@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-14T21:45:11.603Z</updated>
+  <updated>2020-10-15T04:06:10.891Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,18 +21,17 @@
     <link href="http://example.com/2020/10/13/Computer-Architecture/"/>
     <id>http://example.com/2020/10/13/Computer-Architecture/</id>
     <published>2020-10-14T04:44:02.000Z</published>
-    <updated>2020-10-14T21:45:11.603Z</updated>
+    <updated>2020-10-15T04:06:10.891Z</updated>
     
-    <content type="html"><![CDATA[<p>#Computer Architecture<br>##Chapter 1<br>###Main formula<br>####CPU_TIME<br><img src="/img/CA/1_01.jpg" alt="CPU_Time"><br>CPU TIME = execution time<br>CPU TIME = instructions * CPI * cycle time<br>CPU TIME = (instructions * CPI) / clock rate<br>CPU TIME = clock cycles / clock rate<br>CPU TIME = (Σ(instructions * CPI)) / clock rate</p><p>####Instruction Count &amp; CPI<br><img src="/img/CA/1_02.jpg" alt="Instruction"><br>instructions = clock cycles / cycles per instruction<br>instructions = CPU TIME / CPI / cycle time<br>instructions = CPU TIME * clock rate / CPI  </p><p>clock cycles = Σ(instructions * CPI)<br>clock cycles = instructions * CPI  </p><p>CPI = clock cycles / instructions<br>CPI = Σ ( CPI<sub>i</sub> * (instructions<sub>i</sub> / instructions))</p><p>####BIG Picture<br><img src="/img/CA/1_03.jpg" alt="Instruction"><br>####Pitfall: Amdahl’s Law<br><img src="/img/CA/1_04.jpg" alt="Instruction"><br>####MIPS &amp; IPS<br><img src="/img/CA/1_05.jpg" alt="Instruction"><br>IPS = (instructions / CPU_TIME) = clock_rate / CPI  </p><p>MIPS = instructions / (execution_time * 10 ^ 6)<br>MIPS = (instructions) / ((instructions * CPI / clock_rate) * 10 ^ 6)<br>MIPS = clock_rate / (CPI * 10 ^ 6)  </p><p><img src="/img/CA/control.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h1><p><strong>Introduction</strong> Take notes for the computer structure and write down the knowledge points in each chapter  </p><a id="more"></a><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><h3 id="Main-formula"><a href="#Main-formula" class="headerlink" title="Main formula"></a>Main formula</h3><h4 id="CPU-TIME"><a href="#CPU-TIME" class="headerlink" title="CPU_TIME"></a>CPU_TIME</h4><p><img src="/img/CA/1_01.jpg" alt="CPU_Time"><br>CPU TIME = execution time<br>CPU TIME = instructions * CPI * cycle time<br>CPU TIME = (instructions * CPI) / clock rate<br>CPU TIME = clock cycles / clock rate<br>CPU TIME = (Σ(instructions * CPI)) / clock rate</p><h4 id="Instruction-Count-amp-CPI"><a href="#Instruction-Count-amp-CPI" class="headerlink" title="Instruction Count &amp; CPI"></a>Instruction Count &amp; CPI</h4><p><img src="/img/CA/1_02.jpg" alt="Instruction"><br>instructions = clock cycles / cycles per instruction<br>instructions = CPU TIME / CPI / cycle time<br>instructions = CPU TIME * clock rate / CPI  </p><p>clock cycles = Σ(instructions * CPI)<br>clock cycles = instructions * CPI  </p><p>CPI = clock cycles / instructions<br>CPI = Σ ( CPI<sub>i</sub> * (instructions<sub>i</sub> / instructions))</p><h4 id="BIG-Picture"><a href="#BIG-Picture" class="headerlink" title="BIG Picture"></a>BIG Picture</h4><p><img src="/img/CA/1_03.jpg" alt="Instruction"> </p><h4 id="Pitfall-Amdahl’s-Law"><a href="#Pitfall-Amdahl’s-Law" class="headerlink" title="Pitfall: Amdahl’s Law"></a>Pitfall: Amdahl’s Law</h4><p><img src="/img/CA/1_04.jpg" alt="Instruction">   </p><h4 id="MIPS-amp-IPS"><a href="#MIPS-amp-IPS" class="headerlink" title="MIPS &amp; IPS"></a>MIPS &amp; IPS</h4><p><img src="/img/CA/1_05.jpg" alt="Instruction"><br>IPS = (instructions / CPU_TIME) = clock_rate / CPI  </p><p>MIPS = instructions / (execution_time * 10 ^ 6)<br>MIPS = (instructions) / ((instructions * CPI / clock_rate) * 10 ^ 6)<br>MIPS = clock_rate / (CPI * 10 ^ 6)  </p><p><img src="/img/CA/control.jpg"></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;#Computer Architecture&lt;br&gt;##Chapter 1&lt;br&gt;###Main formula&lt;br&gt;####CPU_TIME&lt;br&gt;&lt;img src=&quot;/img/CA/1_01.jpg&quot; alt=&quot;CPU_Time&quot;&gt;&lt;br&gt;CPU TIME = exe</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;Computer-Architecture&quot;&gt;&lt;a href=&quot;#Computer-Architecture&quot; class=&quot;headerlink&quot; title=&quot;Computer Architecture&quot;&gt;&lt;/a&gt;Computer Architecture&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt; Take notes for the computer structure and write down the knowledge points in each chapter  &lt;/p&gt;</summary>
     
     
     
+    
+    <category term="SCU, Campus" scheme="http://example.com/tags/SCU-Campus/"/>
     
   </entry>
   
