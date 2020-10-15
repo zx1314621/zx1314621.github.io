@@ -15,12 +15,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="BLOG">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta name="description" content="Instroduction In order to summarize the algorithm of Leetcode encountered">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode">
+<meta property="og:url" content="http://example.com/2020/10/15/Leetcode/index.html">
 <meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="Instroduction In order to summarize the algorithm of Leetcode encountered">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-15T15:56:11.000Z">
+<meta property="article:modified_time" content="2020-10-15T18:12:31.648Z">
 <meta property="article:author" content="Dylan Liu">
+<meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -55,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | BLOG</title>
+<title>Leetcode | BLOG</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +70,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -255,169 +260,326 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Leetcode" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/10/15/Leetcode/" class="archive-article-date">
-      <time datetime="2020-10-15T15:56:11.000Z" itemprop="datePublished">10-15</time>
+    <div class="article-meta">
+      <a href="/2020/10/15/Leetcode/" class="article-date">
+      <time datetime="2020-10-15T15:56:11.000Z" itemprop="datePublished">2020-10-15</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/15/Leetcode/">Leetcode</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>Instroduction</strong> In order to summarize the algorithm of Leetcode encountered</p>
+<a id="more"></a>
+<h1 id="Tricky"><a href="#Tricky" class="headerlink" title="Tricky"></a>Tricky</h1><h2 id="GrayCode"><a href="#GrayCode" class="headerlink" title="GrayCode"></a>GrayCode</h2><h3 id="Question-description"><a href="#Question-description" class="headerlink" title="Question description"></a>Question description</h3><p>leetcode1611. Minimum One Bit Operations to Make Integers Zero<br>Given an integer n, you must transform it into 0 using the following operations any number of times:</p>
+<ul>
+<li><p>Change the rightmost (0th) bit in the binary representation of n.</p>
+</li>
+<li><p>Change the ith bit in the binary representation of n if the (i-1)th bit is set to 1 and the (i-2)th through 0th bits are set to 0.<br>Return the minimum number of operations to transform n into 0.  </p>
+</li>
+<li><p>Example 1</p>
+<blockquote>
+<p>Input: n = 0<br>Output: 0</p>
+</blockquote>
+</li>
+<li><p>Example 2</p>
+<blockquote>
+<p>Input: n = 3<br>Output: 2<br>Explanation: The binary representation of 3 is “11”.<br>“11” -&gt; “01” with the 2nd operation since the 0th bit is 1.<br>“01” -&gt; “00” with the 1st operation.</p>
+</blockquote>
+</li>
+<li><p>Example 3</p>
+<blockquote>
+<p>Input: n = 6<br>Output: 4<br>Explanation: The binary representation of 6 is “110”.<br>“110” -&gt; “010” with the 2nd operation since the 1st bit is 1 and 0th through 0th bits are 0.<br>“010” -&gt; “011” with the 1st operation.<br>“011” -&gt; “001” with the 2nd operation since the 0th bit is 1.<br>“001” -&gt; “000” with the 1st operation.</p>
+</blockquote>
+</li>
+<li><p>Example 4</p>
+<blockquote>
+<p>Input: n = 9<br>Output: 14</p>
+</blockquote>
+</li>
+<li><p>Example 5</p>
+<blockquote>
+<p>Input: n = 333<br>Output: 393</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gray_code">GrayCode</a> always has the least number of bit changes, so treating the given number as grey code and converting it to decimal gives the correct answer.  </p>
+<table>
+<thead>
+<tr>
+<th align="center">Decimal</th>
+<th align="center">Binary</th>
+<th align="center">GrayCode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0000</td>
+<td align="center">0000</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0001</td>
+<td align="center">0001</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">0010</td>
+<td align="center">0011</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0011</td>
+<td align="center">0010</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">0100</td>
+<td align="center">0110</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">0101</td>
+<td align="center">0111</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">0110</td>
+<td align="center">0101</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">0111</td>
+<td align="center">0100</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">1000</td>
+<td align="center">1100</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">1001</td>
+<td align="center">1101</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">1010</td>
+<td align="center">1111</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">1011</td>
+<td align="center">1110</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">1100</td>
+<td align="center">1010</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">1101</td>
+<td align="center">1011</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">1110</td>
+<td align="center">1001</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">1111</td>
+<td align="center">1000</td>
+</tr>
+</tbody></table>
+<p><strong>decimal to graycode</strong><br>fix the first digit, xor from left to right<br><em>1101</em>  =&gt; <em>1</em> (the first digit is fixed) =&gt; <em>10</em> (since the first two digit is same) =&gt; <em>101</em> (since the second digit is different with the third digit) =&gt; <em>1011</em> (the last two digit is different)</p>
+<p><strong>graycode to decimal</strong><br>fix the first digit, decode from left to right<br><em>1011</em> =&gt; <em>1</em> (fix the first digit) =&gt; <em>11</em> (the second is 0, so still is 1) =&gt; <em>110</em> (the third is 1, so change from 1 to 0) =&gt; <em>1101</em> (the last is 1, so change from 0 to 1)</p>
+<pre><code>class Solution &#123;
+    public int minimumOneBitOperations(int n) &#123;
+        //graycode to decimal
+        int res = 0;
+        while (n != 0) &#123;
+            res ^= n;
+            n &gt;&gt;= 1;
+        &#125;
+
+        return res;
+    &#125;
+&#125;
+</code></pre>
+<p>running case  </p>
+<pre><code>&gt; input 9 expect output 14
+
+init  
+n = 9 = 1001  
+res = 0  
+loop 1
+res ^= n =&gt; res = 0000 ^ 1001 = 1001
+n &gt;&gt; 1 =&gt; n = 100
+loop 2  
+res ^= n =&gt; res = 1001 ^ 100 = 1101  
+n &gt;&gt; 1 =&gt; n = 10  
+loop 3  
+res ^= n =&gt; res = 1101 ^ 10 = 1111  
+n &gt;&gt; 1 =&gt; n = 1  
+loop 4  
+res ^= n =&gt; res = 1111 ^ 1 = 1110
+n &gt;&gt; 1 =&gt; n = 0  
+end 
+return res = 14</code></pre>
+
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/10/13/Computer-Architecture/" class="archive-article-date">
-      <time datetime="2020-10-14T04:44:02.000Z" itemprop="datePublished">10-13</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/13/Computer-Architecture/">Computer Architecture</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCU-Campus/" rel="tag">SCU, Campus</a></li></ul>
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2020/10/15/Leetcode/">Leetcode</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
+        <p><span>Created:</span>2020-10-15, 08:56:11</p>
+        <p><span>Updated:</span>2020-10-15, 11:12:31</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2020/10/15/Leetcode/" title="Leetcode">http://example.com/2020/10/15/Leetcode/</a>
+            <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/15/Leetcode/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/10/13/Computer-Architecture/">
+                    Computer Architecture
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/10/13/hello-world/" class="archive-article-date">
-      <time datetime="2020-10-14T00:03:42.491Z" itemprop="datePublished">10-13</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tricky"><span class="toc-number">1.</span> <span class="toc-text">Tricky</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GrayCode"><span class="toc-number">1.1.</span> <span class="toc-text">GrayCode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-description"><span class="toc-number">1.1.1.</span> <span class="toc-text">Question description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Answer"><span class="toc-number">1.1.2.</span> <span class="toc-text">Answer</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/13/hello-world/">How to post new</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Leetcode　| BLOG　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
+
     
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
+</div>
+
+
+
+
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/08/05/iOS-%E5%BC%80%E5%8F%91%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8BGCD/" class="archive-article-date">
-      <time datetime="2015-08-06T02:57:03.000Z" itemprop="datePublished">08-05</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/05/iOS-%E5%BC%80%E5%8F%91%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8BGCD/">iOS 开发之多线程 GCD</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/10/13/Computer-Architecture/" title="Next: Computer Architecture">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/10/15/Leetcode/">Leetcode</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/13/Computer-Architecture/">Computer Architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/13/hello-world/">How to post new</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/05/iOS-%E5%BC%80%E5%8F%91%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8BGCD/">iOS 开发之多线程 GCD</a></li></ul>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li></ul>
-    </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
 
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
