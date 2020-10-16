@@ -23,7 +23,7 @@
 <meta property="og:description" content="Instroduction In order to summarize the algorithm of Leetcode encountered">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-15T15:56:11.000Z">
-<meta property="article:modified_time" content="2020-10-15T18:18:56.634Z">
+<meta property="article:modified_time" content="2020-10-16T17:52:33.010Z">
 <meta property="article:author" content="Dylan Liu">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -306,7 +306,8 @@
           
         <p><strong>Instroduction</strong> In order to summarize the algorithm of Leetcode encountered</p>
 <a id="more"></a>
-<h1 id="Tricky"><a href="#Tricky" class="headerlink" title="Tricky"></a>Tricky</h1><h2 id="GrayCode"><a href="#GrayCode" class="headerlink" title="GrayCode"></a>GrayCode</h2><h3 id="Question-description"><a href="#Question-description" class="headerlink" title="Question description"></a>Question description</h3><p>leetcode1611. Minimum One Bit Operations to Make Integers Zero<br>Given an integer n, you must transform it into 0 using the following operations any number of times:</p>
+
+<h1 id="Tricky"><a href="#Tricky" class="headerlink" title="Tricky"></a>Tricky</h1><h2 id="GrayCode"><a href="#GrayCode" class="headerlink" title="GrayCode"></a>GrayCode</h2><h3 id="Question-description"><a href="#Question-description" class="headerlink" title="Question description"></a>Question description</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/">1611. Minimum One Bit Operations to Make Integers Zero</a><br>Given an integer n, you must transform it into 0 using the following operations any number of times:</p>
 <ul>
 <li><p>Change the rightmost (0th) bit in the binary representation of n.</p>
 </li>
@@ -335,6 +336,11 @@
 <li><p>Example 5</p>
 <blockquote>
 <p>Input: n = 333<br>Output: 393</p>
+</blockquote>
+</li>
+<li><p>Constraints:</p>
+<blockquote>
+<p>0 &lt;= n &lt;= 10<sup>9</sup></p>
 </blockquote>
 </li>
 </ul>
@@ -430,40 +436,39 @@
 </tbody></table>
 <p><strong>decimal to graycode</strong><br>fix the first digit, xor from left to right<br><em>1101</em>  =&gt; <em>1</em> (the first digit is fixed) =&gt; <em>10</em> (since the first two digit is same) =&gt; <em>101</em> (since the second digit is different with the third digit) =&gt; <em>1011</em> (the last two digit is different)</p>
 <p><strong>graycode to decimal</strong><br>fix the first digit, decode from left to right<br><em>1011</em> =&gt; <em>1</em> (fix the first digit) =&gt; <em>11</em> (the second is 0, so still is 1) =&gt; <em>110</em> (the third is 1, so change from 1 to 0) =&gt; <em>1101</em> (the last is 1, so change from 0 to 1)</p>
-<pre><code>class Solution &#123;
-    public int minimumOneBitOperations(int n) &#123;
-        //graycode to decimal
-        int res = 0;
-        while (n != 0) &#123;
-            res ^= n;
-            n &gt;&gt;= 1;
-        &#125;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int minimumOneBitOperations(int n) &#123;</span><br><span class="line">        &#x2F;&#x2F;graycode to decimal</span><br><span class="line">        int res &#x3D; 0;</span><br><span class="line">        while (n !&#x3D; 0) &#123;</span><br><span class="line">            res ^&#x3D; n;</span><br><span class="line">            n &gt;&gt;&#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">	Input 9 Expect output 14</span><br><span class="line">	</span><br><span class="line">	init  </span><br><span class="line">	n &#x3D; 9 &#x3D; 1001  </span><br><span class="line">	res &#x3D; 0  </span><br><span class="line">	loop 1</span><br><span class="line">	res ^&#x3D; n &#x3D;&gt; res &#x3D; 0000 ^ 1001 &#x3D; 1001</span><br><span class="line">	n &gt;&gt; 1 &#x3D;&gt; n &#x3D; 100</span><br><span class="line">	loop 2  </span><br><span class="line">	res ^&#x3D; n &#x3D;&gt; res &#x3D; 1001 ^ 100 &#x3D; 1101  </span><br><span class="line">	n &gt;&gt; 1 &#x3D;&gt; n &#x3D; 10  </span><br><span class="line">	loop 3  </span><br><span class="line">	res ^&#x3D; n &#x3D;&gt; res &#x3D; 1101 ^ 10 &#x3D; 1111  </span><br><span class="line">	n &gt;&gt; 1 &#x3D;&gt; n &#x3D; 1  </span><br><span class="line">	loop 4  </span><br><span class="line">	res ^&#x3D; n &#x3D;&gt; res &#x3D; 1111 ^ 1 &#x3D; 1110</span><br><span class="line">	n &gt;&gt; 1 &#x3D;&gt; n &#x3D; 0  </span><br><span class="line">	end </span><br><span class="line">	return res &#x3D; 14</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
 
-        return res;
-    &#125;
-&#125;
-/*
-    Input 9 Expect output 14
 
-    init  
-    n = 9 = 1001  
-    res = 0  
-    loop 1
-    res ^= n =&gt; res = 0000 ^ 1001 = 1001
-    n &gt;&gt; 1 =&gt; n = 100
-    loop 2  
-    res ^= n =&gt; res = 1001 ^ 100 = 1101  
-    n &gt;&gt; 1 =&gt; n = 10  
-    loop 3  
-    res ^= n =&gt; res = 1101 ^ 10 = 1111  
-    n &gt;&gt; 1 =&gt; n = 1  
-    loop 4  
-    res ^= n =&gt; res = 1111 ^ 1 = 1110
-    n &gt;&gt; 1 =&gt; n = 0  
-    end 
-    return res = 14
-*/
-</code></pre>
+
+<h2 id="BitMask"><a href="#BitMask" class="headerlink" title="BitMask"></a>BitMask</h2><h3 id="Question-description-1"><a href="#Question-description-1" class="headerlink" title="Question description"></a>Question description</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/">1617. Count Subtrees With Max Distance Between Cities  </a><br>There are n cities numbered from 1 to n. You are given an array edges of size n-1, where edges[i] = [ui, vi] represents a bidirectional edge between cities ui and vi. There exists a unique path between each pair of cities. In other words, the cities form a <strong>tree</strong>.</p>
+<p>A <strong>subtree</strong> is a subset of cities where every city is reachable from every other city in the subset, where the path between each pair passes through only the cities from the subset. Two subtrees are different if there is a city in one subtree that is not present in the other.</p>
+<p>For each d from 1 to n-1, find the number of subtrees in which the <strong>maximum distance</strong> between any two cities in the subtree is equal to d.</p>
+<p>Return an array of size n-1 where the dth element <strong>(1-indexed)</strong> is the number of subtrees in which the <strong>maximum distance</strong> between any two cities is equal to d.</p>
+<p><strong>Notice</strong> that the <strong>distance</strong> between the two cities is the number of edges in the path between them.</p>
+<ul>
+<li><p>Example 1  </p>
+<blockquote>
+<p>Input: n = 4, edges = [[1,2],[2,3],[2,4]]<br>Output: [3,4,0]<br>Explanation:<br>The subtrees with subsets {1,2}, {2,3} and {2,4} have a max distance of 1.<br>The subtrees with subsets {1,2,3}, {1,2,4}, {2,3,4} and {1,2,3,4} have a max distance of 2.<br>No subtree has two nodes where the max distance between them is 3.</p>
+</blockquote>
+</li>
+<li><p>Example 2</p>
+<blockquote>
+<p>Input: n = 2, edges = [[1,2]]<br>Output: [1]</p>
+</blockquote>
+</li>
+<li><p>Example 3</p>
+<blockquote>
+<p>Input: n = 3, edges = [[1,2],[2,3]]<br>Output: [2,1]</p>
+</blockquote>
+</li>
+<li><p>Constraints:</p>
+<blockquote>
+<p>2 &lt;= n &lt;= 15(the biggest n is 15 indicates that time complexity should related to 2<sup>n</sup>)<br>edges.length == n-1<br>edges[i].length == 2<br>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n<br>All pairs (u<sub>i</sub>, v<sub>i</sub>) are distinct. </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Code-amp-Explanation-1"><a href="#Code-amp-Explanation-1" class="headerlink" title="Code &amp; Explanation"></a>Code &amp; Explanation</h3><p>Try every pair of n cities.<br>From example 1, n = 4, edges = [[1,2],[2,3],[2,4]]<br>we use bit mast to represemt where it is in this pair.<br>0000(all absence)<br>0001<br>0010<br>0011<br>0100<br>0101<br>0110<br>0111<br>1000<br>1001<br>1010<br>1011<br>1100<br>1101<br>1110<br>1111(all in)  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int[] countSubgraphsForEachDiameter(int n, int[][] edges) &#123;</span><br><span class="line">        int[][] dist &#x3D; new int[n][n];</span><br><span class="line">        List&lt;Integer&gt;[] neighbor &#x3D; new List[n];</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++) neighbor[i] &#x3D; new ArrayList();</span><br><span class="line">        for (int[] edge : edges) &#123;</span><br><span class="line">            neighbor[edge[0] - 1].add(edge[1] - 1);</span><br><span class="line">            neighbor[edge[1] - 1].add(edge[0] - 1);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; use DFS to build a graph, and record distance between each nodes</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">            callDFS(dist, neighbor, i, -1, i, 0);</span><br><span class="line">        </span><br><span class="line">        int[] res &#x3D; new int[n-1];</span><br><span class="line">        &#x2F;&#x2F; i from 1 to (1&lt;&lt;n), loop every pair, n &#x3D; 4, (1 &lt;&lt; n) &#x3D; 16, i &#x3D; [1, 16), no 0 is because every pari can not be empty </span><br><span class="line">        for (int i &#x3D; 1; i &lt; (1 &lt;&lt; n); i++) &#123;</span><br><span class="line">            int adjacent &#x3D; 0;</span><br><span class="line">            int cities &#x3D; 0;</span><br><span class="line">            int maxDist &#x3D; 0;</span><br><span class="line">            </span><br><span class="line">            for (int j &#x3D; 0; j &lt; n; j++) &#123;</span><br><span class="line">            &#x2F;&#x2F; check if this node in this pair</span><br><span class="line">                if ((i &amp; (1 &lt;&lt; j)) !&#x3D; 0) &#123;</span><br><span class="line">                    cities ++;</span><br><span class="line">                    </span><br><span class="line">                    for (int k &#x3D; j + 1; k &lt; n; k++) &#123;</span><br><span class="line">                    &#x2F;&#x2F; check if this node int this pair</span><br><span class="line">                        if ((i &amp; (1 &lt;&lt; k)) !&#x3D; 0) &#123;</span><br><span class="line">                        &#x2F;&#x2F; record the maxDist in this pair</span><br><span class="line">                            maxDist &#x3D; Math.max(maxDist, dist[j][k]);</span><br><span class="line">                            &#x2F;&#x2F; record how many direct line in this pair</span><br><span class="line">                            if (dist[j][k] &#x3D;&#x3D; 1) adjacent++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; check this graph is valid</span><br><span class="line">            if (cities &#x3D;&#x3D; adjacent + 1 &amp;&amp; maxDist &gt; 0) res[maxDist - 1]++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    private void callDFS(int[][] dist, List&lt;Integer&gt;[] neighbor, int root, int pre, int cur, int curDist) &#123;</span><br><span class="line">        if (pre &#x3D;&#x3D; cur) return;</span><br><span class="line">        </span><br><span class="line">        dist[root][cur] &#x3D; curDist;</span><br><span class="line">        dist[cur][root] &#x3D; curDist;</span><br><span class="line">        </span><br><span class="line">        for (int neighbo : neighbor[cur]) &#123;</span><br><span class="line">            if (neighbo !&#x3D; pre) &#123;</span><br><span class="line">                callDFS(dist, neighbor, root, cur, neighbo, curDist+1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -475,7 +480,7 @@
         <p><span>Title:</span><a href="/2020/10/15/Leetcode/">Leetcode</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2020-10-15, 08:56:11</p>
-        <p><span>Updated:</span>2020-10-15, 11:18:56</p>
+        <p><span>Updated:</span>2020-10-16, 10:52:33</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/10/15/Leetcode/" title="Leetcode">http://example.com/2020/10/15/Leetcode/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/15/Leetcode/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -505,7 +510,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tricky"><span class="toc-number">1.</span> <span class="toc-text">Tricky</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GrayCode"><span class="toc-number">1.1.</span> <span class="toc-text">GrayCode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-description"><span class="toc-number">1.1.1.</span> <span class="toc-text">Question description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-amp-Explanation"><span class="toc-number">1.1.2.</span> <span class="toc-text">Code &amp; Explanation</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tricky"><span class="toc-number">1.</span> <span class="toc-text">Tricky</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GrayCode"><span class="toc-number">1.1.</span> <span class="toc-text">GrayCode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-description"><span class="toc-number">1.1.1.</span> <span class="toc-text">Question description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-amp-Explanation"><span class="toc-number">1.1.2.</span> <span class="toc-text">Code &amp; Explanation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BitMask"><span class="toc-number">1.2.</span> <span class="toc-text">BitMask</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-description-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">Question description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-amp-Explanation-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">Code &amp; Explanation</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
