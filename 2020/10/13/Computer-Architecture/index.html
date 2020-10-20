@@ -31,9 +31,12 @@
 <meta property="og:image" content="http://example.com/img/CA/2_03.jpg">
 <meta property="og:image" content="http://example.com/img/CA/2_04.jpg">
 <meta property="og:image" content="http://example.com/img/CA/4_01.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_02.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_03.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_04.jpg">
 <meta property="og:image" content="http://example.com/img/CA/control.jpg">
 <meta property="article:published_time" content="2020-10-14T04:44:02.000Z">
-<meta property="article:modified_time" content="2020-10-16T00:55:15.631Z">
+<meta property="article:modified_time" content="2020-10-20T03:02:08.809Z">
 <meta property="article:author" content="Dylan Liu">
 <meta property="article:tag" content="SCU, Campus">
 <meta name="twitter:card" content="summary">
@@ -517,7 +520,7 @@
            <td>17</td>
            <td>21</td>
            <td>xxx</td>
-           <td>5</td>
+           <td>0</td>
            <td>sd</td>
    </tr>
    <tr>
@@ -579,7 +582,134 @@
 </li>
 </ul>
 <h1 id="Chapter-4"><a href="#Chapter-4" class="headerlink" title="Chapter 4"></a>Chapter 4</h1><h2 id="functional-units"><a href="#functional-units" class="headerlink" title="functional units"></a>functional units</h2><p><img src="/img/CA/4_01.jpg">  </p>
-<p><img src="/img/CA/control.jpg">  </p>
+<h2 id="DataPath"><a href="#DataPath" class="headerlink" title="DataPath"></a>DataPath</h2><h3 id="R-type"><a href="#R-type" class="headerlink" title="R-type"></a>R-type</h3><p><strong>Basic Steps</strong>  </p>
+<ul>
+<li>fetch instructions</li>
+<li>select registers(rs1, rs2)</li>
+<li>ALU operations on two data, need ALU</li>
+<li>write back registers</li>
+</ul>
+<p><strong>Example</strong><br>add x3, x4, x5 =&gt; x3 = x4 + x5  </p>
+<table>
+<thead>
+<tr>
+<th align="center">f7</th>
+<th align="center">rs2</th>
+<th align="center">rs1</th>
+<th align="center">f3</th>
+<th align="center">rd</th>
+<th align="center">op</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">add</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">R</td>
+</tr>
+</tbody></table>
+<p><img src="/img/CA/4_02.jpg">  </p>
+<h3 id="I-type-Immediate-1"><a href="#I-type-Immediate-1" class="headerlink" title="I-type(Immediate)"></a>I-type(Immediate)</h3><p><strong>Basic Steps</strong>  </p>
+<ul>
+<li>fetch instructions</li>
+<li>select registers(rs1)</li>
+<li>calculate address, need ALU</li>
+<li>access memory(read memory)</li>
+<li>write register file(rd)</li>
+</ul>
+<p><strong>Example</strong><br>ld x3 64(x4) =&gt; x3 = mem[x4 + 64]  </p>
+<table>
+<thead>
+<tr>
+<th align="center">imm</th>
+<th align="center">rs1</th>
+<th align="center">f3</th>
+<th align="center">rd</th>
+<th align="center">op</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">64</td>
+<td align="center">4</td>
+<td align="center">xxx</td>
+<td align="center">3</td>
+<td align="center">addi</td>
+</tr>
+<tr>
+<td align="center"><img src="/img/CA/4_03.jpg"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="S-type-sd-1"><a href="#S-type-sd-1" class="headerlink" title="S-type(sd)"></a>S-type(sd)</h3><p><strong>Basic Steps</strong>  </p>
+<ul>
+<li>fetch instructions</li>
+<li>select two register(rs1, rs2)</li>
+<li>calculate address, need ALU</li>
+<li>access memory(write memory)</li>
+</ul>
+<p><strong>Example</strong><br>sd x3 64(x4) =&gt; mem[x4 + 64] = x3</p>
+<table>
+<thead>
+<tr>
+<th align="center">f7</th>
+<th align="center">rs2</th>
+<th align="center">rs1</th>
+<th align="center">f3</th>
+<th align="center">rd</th>
+<th align="center">op</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">xxx</td>
+<td align="center">0</td>
+<td align="center">sd</td>
+</tr>
+<tr>
+<td align="center"><img src="/img/CA/4_04.jpg"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="SB-type-branch-1"><a href="#SB-type-branch-1" class="headerlink" title="SB-type(branch)"></a>SB-type(branch)</h3><p><strong>Basic Steps</strong>  </p>
+<ul>
+<li>fetch instructions</li>
+<li>select registers</li>
+<li>test condition, calculate branch address(need additional ALU)</li>
+</ul>
+<p><strong>Example</strong><br>beq x1, x2, offset =&gt; if x1 = x2, pc = offset + pc + 4</p>
+<table>
+<thead>
+<tr>
+<th align="center">f7</th>
+<th align="center">rs2</th>
+<th align="center">rs1</th>
+<th align="center">f3</th>
+<th align="center">rd</th>
+<th align="center">op</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">xxx</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">xxx</td>
+<td align="center">xxx</td>
+<td align="center">beq</td>
+</tr>
+</tbody></table>
+<h3 id="UJ-type-jal-1"><a href="#UJ-type-jal-1" class="headerlink" title="UJ-type(jal)"></a>UJ-type(jal)</h3><p><img src="/img/CA/control.jpg">  </p>
+<p>Data Memory is only used during load and store.</p>
 
       
     </div>
@@ -591,7 +721,7 @@
         <p><span>Title:</span><a href="/2020/10/13/Computer-Architecture/">Computer Architecture</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2020-10-13, 21:44:02</p>
-        <p><span>Updated:</span>2020-10-15, 17:55:15</p>
+        <p><span>Updated:</span>2020-10-19, 20:02:08</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/10/13/Computer-Architecture/" title="Computer Architecture">http://example.com/2020/10/13/Computer-Architecture/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/13/Computer-Architecture/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -627,7 +757,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-formula"><span class="toc-number">1.1.</span> <span class="toc-text">Main formula</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-TIME"><span class="toc-number">1.1.1.</span> <span class="toc-text">CPU_TIME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instruction-Count-amp-CPI"><span class="toc-number">1.1.2.</span> <span class="toc-text">Instruction Count &amp; CPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BIG-Picture"><span class="toc-number">1.1.3.</span> <span class="toc-text">BIG Picture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pitfall-Amdahl%E2%80%99s-Law"><span class="toc-number">1.1.4.</span> <span class="toc-text">Pitfall: Amdahl’s Law</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIPS-amp-IPS"><span class="toc-number">1.1.5.</span> <span class="toc-text">MIPS &amp; IPS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC-V-Instruction"><span class="toc-number">2.1.</span> <span class="toc-text">RISC-V Instruction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-Type-regular"><span class="toc-number">2.1.1.</span> <span class="toc-text">R-Type(regular)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate"><span class="toc-number">2.1.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd"><span class="toc-number">2.1.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch"><span class="toc-number">2.1.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal"><span class="toc-number">2.1.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">2.1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">2.1.7.</span> <span class="toc-text">example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-Mode"><span class="toc-number">2.1.8.</span> <span class="toc-text">Addressing Mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4"><span class="toc-number">3.</span> <span class="toc-text">Chapter 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#functional-units"><span class="toc-number">3.1.</span> <span class="toc-text">functional units</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-formula"><span class="toc-number">1.1.</span> <span class="toc-text">Main formula</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-TIME"><span class="toc-number">1.1.1.</span> <span class="toc-text">CPU_TIME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instruction-Count-amp-CPI"><span class="toc-number">1.1.2.</span> <span class="toc-text">Instruction Count &amp; CPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BIG-Picture"><span class="toc-number">1.1.3.</span> <span class="toc-text">BIG Picture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pitfall-Amdahl%E2%80%99s-Law"><span class="toc-number">1.1.4.</span> <span class="toc-text">Pitfall: Amdahl’s Law</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIPS-amp-IPS"><span class="toc-number">1.1.5.</span> <span class="toc-text">MIPS &amp; IPS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC-V-Instruction"><span class="toc-number">2.1.</span> <span class="toc-text">RISC-V Instruction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-Type-regular"><span class="toc-number">2.1.1.</span> <span class="toc-text">R-Type(regular)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate"><span class="toc-number">2.1.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd"><span class="toc-number">2.1.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch"><span class="toc-number">2.1.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal"><span class="toc-number">2.1.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">2.1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">2.1.7.</span> <span class="toc-text">example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-Mode"><span class="toc-number">2.1.8.</span> <span class="toc-text">Addressing Mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4"><span class="toc-number">3.</span> <span class="toc-text">Chapter 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#functional-units"><span class="toc-number">3.1.</span> <span class="toc-text">functional units</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataPath"><span class="toc-number">3.2.</span> <span class="toc-text">DataPath</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-type"><span class="toc-number">3.2.1.</span> <span class="toc-text">R-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd-1"><span class="toc-number">3.2.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch-1"><span class="toc-number">3.2.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal-1"><span class="toc-number">3.2.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
