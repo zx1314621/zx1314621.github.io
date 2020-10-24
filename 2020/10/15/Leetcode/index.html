@@ -23,7 +23,7 @@
 <meta property="og:description" content="Instroduction In order to summarize the algorithm of Leetcode encountered">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-15T15:56:11.000Z">
-<meta property="article:modified_time" content="2020-10-24T18:47:28.554Z">
+<meta property="article:modified_time" content="2020-10-24T18:54:58.832Z">
 <meta property="article:author" content="Dylan Liu">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -411,11 +411,18 @@
         int root_y = findRoot(y);
         if (root_x == root_y) return;
 
-        if (size[x] &gt; size[y]) &#123;
-            size[x] += size[y];
+        // if (size[x] &gt; size[y]) &#123;
+        //     size[x] += size[y];
+        //     this.roots[root_y] = root_x;
+        // &#125; else &#123;
+        //     size[y] += size[x];
+        //     this.roots[root_x] = root_y;
+        // &#125;
+        if (root_x &lt; root_y) &#123;
+
             this.roots[root_y] = root_x;
         &#125; else &#123;
-            size[y] += size[x];
+
             this.roots[root_x] = root_y;
         &#125;
 
@@ -624,7 +631,7 @@ public List&lt;Boolean&gt; areConnected(int n, int threshold, int[][] queries) &
         <p><span>Title:</span><a href="/2020/10/15/Leetcode/">Leetcode</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2020-10-15, 08:56:11</p>
-        <p><span>Updated:</span>2020-10-24, 11:47:28</p>
+        <p><span>Updated:</span>2020-10-24, 11:54:58</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/10/15/Leetcode/" title="Leetcode">http://example.com/2020/10/15/Leetcode/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/15/Leetcode/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
