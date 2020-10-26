@@ -52,8 +52,20 @@
 <meta property="og:image" content="http://example.com/img/CA/4_20.jpg">
 <meta property="og:image" content="http://example.com/img/CA/4_21.jpg">
 <meta property="og:image" content="http://example.com/img/CA/4_22.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_23.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_24.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_25.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_26.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_27.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_29.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_28.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_30.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_31.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_32.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_33.jpg">
+<meta property="og:image" content="http://example.com/img/CA/4_34.jpg">
 <meta property="article:published_time" content="2020-10-14T04:44:02.000Z">
-<meta property="article:modified_time" content="2020-10-24T18:11:00.113Z">
+<meta property="article:modified_time" content="2020-10-26T00:48:19.783Z">
 <meta property="article:author" content="Dylan Liu">
 <meta property="article:tag" content="SCU, Campus">
 <meta name="twitter:card" content="summary">
@@ -810,6 +822,59 @@
 <li>MEM/WB: 2+5+64*2 = 135<br><img src="/img/CA/4_19.jpg">  </li>
 </ul>
 <p><strong>Example: How the five instructions go through the pipe, and what are the buffer values</strong><br><img src="/img/CA/4_20.jpg"><br><img src="/img/CA/4_21.jpg"><br><img src="/img/CA/4_22.jpg">  </p>
+<h3 id="Data-Hazards"><a href="#Data-Hazards" class="headerlink" title="Data Hazards"></a>Data Hazards</h3><p><img src="/img/CA/4_23.jpg"><br><img src="/img/CA/4_24.jpg"><br><strong>WAW,WAR won’t cause Data Hazards</strong>, because write is the last process of instruction, write always after the read.</p>
+<h3 id="Handle-Data-Hazards"><a href="#Handle-Data-Hazards" class="headerlink" title="Handle Data Hazards"></a>Handle Data Hazards</h3><ul>
+<li><p>Compiler approach  </p>
+<blockquote>
+<p>insert dummy operations or “nops”<br>reschedule instructions</p>
+</blockquote>
+</li>
+<li><p>Hardware approach</p>
+<blockquote>
+<p>forwarding</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Example</strong><br><img src="/img/CA/4_25.jpg"><br><img src="/img/CA/4_26.jpg">  </p>
+<h3 id="How-to-identify-all-dependence"><a href="#How-to-identify-all-dependence" class="headerlink" title="How to identify all dependence"></a>How to identify all dependence</h3><ul>
+<li>Find all instructions that write registers</li>
+<li>For each such instruction writing register x<sub>j</sub>, identify all other instructions that either read or write register x<sub>j</sub></li>
+<li>Data dependence graph(DDG)<br><img src="/img/CA/4_27.jpg">  </li>
+</ul>
+<h3 id="Forwarding"><a href="#Forwarding" class="headerlink" title="Forwarding"></a>Forwarding</h3><p><img src="/img/CA/4_29.jpg"><br><img src="/img/CA/4_28.jpg">  </p>
+<p><img src="/img/CA/4_30.jpg"><br><strong>basic forwarding path</strong><br><img src="/img/CA/4_31.jpg">  </p>
+<h4 id="Detecting-the-need-to-Forward"><a href="#Detecting-the-need-to-Forward" class="headerlink" title="Detecting the need to Forward"></a>Detecting the need to Forward</h4><p><img src="/img/CA/4_32.jpg">  </p>
+<ul>
+<li><p>But only if forwarding instructions will write to a register!  </p>
+<blockquote>
+<p>EX/MEM.RegWrite, MEM/WB.RegWrite</p>
+</blockquote>
+</li>
+<li><p>Only if Rd for that instruction is not 0</p>
+<blockquote>
+<p>EX/MEM.RegisterRd!=0<br>MEM/WB.RegisterRd!=0</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="summary-forwarding-conditions"><a href="#summary-forwarding-conditions" class="headerlink" title="summary-forwarding conditions"></a>summary-forwarding conditions</h4><p><img src="/img/CA/4_33.jpg">  </p>
+<h3 id="A-Bug-Double-Data-Hazard"><a href="#A-Bug-Double-Data-Hazard" class="headerlink" title="A Bug: Double Data Hazard"></a>A Bug: Double Data Hazard</h3><ul>
+<li><p>Consider the sequence:  </p>
+<blockquote>
+<p>add x1, x1, x2<br>add x1, x1, x3<br>add x1, x1, x4</p>
+</blockquote>
+</li>
+<li><p>Both hazards occur</p>
+<blockquote>
+<p>Want to use the most recent</p>
+</blockquote>
+</li>
+<li><p>Revise MEM hazard condition</p>
+<blockquote>
+<p>Only forward if EX hazard condition isn’t true</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/img/CA/4_34.jpg">  </p>
 
       
     </div>
@@ -821,7 +886,7 @@
         <p><span>Title:</span><a href="/2020/10/13/Computer-Architecture/">Computer Architecture</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2020-10-13, 21:44:02</p>
-        <p><span>Updated:</span>2020-10-24, 11:11:00</p>
+        <p><span>Updated:</span>2020-10-25, 17:48:19</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/10/13/Computer-Architecture/" title="Computer Architecture">http://example.com/2020/10/13/Computer-Architecture/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/13/Computer-Architecture/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -857,7 +922,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-formula"><span class="toc-number">1.1.</span> <span class="toc-text">Main formula</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-TIME"><span class="toc-number">1.1.1.</span> <span class="toc-text">CPU_TIME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instruction-Count-amp-CPI"><span class="toc-number">1.1.2.</span> <span class="toc-text">Instruction Count &amp; CPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BIG-Picture"><span class="toc-number">1.1.3.</span> <span class="toc-text">BIG Picture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pitfall-Amdahl%E2%80%99s-Law"><span class="toc-number">1.1.4.</span> <span class="toc-text">Pitfall: Amdahl’s Law</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIPS-amp-IPS"><span class="toc-number">1.1.5.</span> <span class="toc-text">MIPS &amp; IPS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC-V-Instruction"><span class="toc-number">2.1.</span> <span class="toc-text">RISC-V Instruction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-Type-regular"><span class="toc-number">2.1.1.</span> <span class="toc-text">R-Type(regular)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate"><span class="toc-number">2.1.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd"><span class="toc-number">2.1.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch"><span class="toc-number">2.1.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal"><span class="toc-number">2.1.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">2.1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">2.1.7.</span> <span class="toc-text">example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-Mode"><span class="toc-number">2.1.8.</span> <span class="toc-text">Addressing Mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4"><span class="toc-number">3.</span> <span class="toc-text">Chapter 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#functional-units"><span class="toc-number">3.1.</span> <span class="toc-text">functional units</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataPath"><span class="toc-number">3.2.</span> <span class="toc-text">DataPath</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-type"><span class="toc-number">3.2.1.</span> <span class="toc-text">R-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd-1"><span class="toc-number">3.2.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch-1"><span class="toc-number">3.2.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal-1"><span class="toc-number">3.2.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-Datapath-for-Single-Cycle"><span class="toc-number">3.2.6.</span> <span class="toc-text">Single Datapath for Single Cycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">3.2.7.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-code-of-ALU-Control"><span class="toc-number">3.2.8.</span> <span class="toc-text">Function code of ALU Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary-of-execution-Time-Analysis"><span class="toc-number">3.2.9.</span> <span class="toc-text">Summary of execution Time Analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optimization-replace-amp-eliminated-control-line"><span class="toc-number">3.2.10.</span> <span class="toc-text">optimization(replace &amp; eliminated control line)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cycle-time-example"><span class="toc-number">3.2.11.</span> <span class="toc-text">cycle time example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PipeLine"><span class="toc-number">3.3.</span> <span class="toc-text">PipeLine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-idea-of-pipeline"><span class="toc-number">3.3.1.</span> <span class="toc-text">Basic idea of pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RISC-V-Pipelined-Datapath"><span class="toc-number">3.3.2.</span> <span class="toc-text">RISC-V Pipelined Datapath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipeline-Control"><span class="toc-number">3.3.3.</span> <span class="toc-text">Pipeline Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer-size"><span class="toc-number">3.3.4.</span> <span class="toc-text">Buffer size</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-formula"><span class="toc-number">1.1.</span> <span class="toc-text">Main formula</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-TIME"><span class="toc-number">1.1.1.</span> <span class="toc-text">CPU_TIME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Instruction-Count-amp-CPI"><span class="toc-number">1.1.2.</span> <span class="toc-text">Instruction Count &amp; CPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BIG-Picture"><span class="toc-number">1.1.3.</span> <span class="toc-text">BIG Picture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pitfall-Amdahl%E2%80%99s-Law"><span class="toc-number">1.1.4.</span> <span class="toc-text">Pitfall: Amdahl’s Law</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIPS-amp-IPS"><span class="toc-number">1.1.5.</span> <span class="toc-text">MIPS &amp; IPS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC-V-Instruction"><span class="toc-number">2.1.</span> <span class="toc-text">RISC-V Instruction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-Type-regular"><span class="toc-number">2.1.1.</span> <span class="toc-text">R-Type(regular)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate"><span class="toc-number">2.1.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd"><span class="toc-number">2.1.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch"><span class="toc-number">2.1.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal"><span class="toc-number">2.1.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">2.1.6.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">2.1.7.</span> <span class="toc-text">example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-Mode"><span class="toc-number">2.1.8.</span> <span class="toc-text">Addressing Mode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4"><span class="toc-number">3.</span> <span class="toc-text">Chapter 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#functional-units"><span class="toc-number">3.1.</span> <span class="toc-text">functional units</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataPath"><span class="toc-number">3.2.</span> <span class="toc-text">DataPath</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#R-type"><span class="toc-number">3.2.1.</span> <span class="toc-text">R-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-type-Immediate-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">I-type(Immediate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-type-sd-1"><span class="toc-number">3.2.3.</span> <span class="toc-text">S-type(sd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SB-type-branch-1"><span class="toc-number">3.2.4.</span> <span class="toc-text">SB-type(branch)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UJ-type-jal-1"><span class="toc-number">3.2.5.</span> <span class="toc-text">UJ-type(jal)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-Datapath-for-Single-Cycle"><span class="toc-number">3.2.6.</span> <span class="toc-text">Single Datapath for Single Cycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">3.2.7.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-code-of-ALU-Control"><span class="toc-number">3.2.8.</span> <span class="toc-text">Function code of ALU Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary-of-execution-Time-Analysis"><span class="toc-number">3.2.9.</span> <span class="toc-text">Summary of execution Time Analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optimization-replace-amp-eliminated-control-line"><span class="toc-number">3.2.10.</span> <span class="toc-text">optimization(replace &amp; eliminated control line)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cycle-time-example"><span class="toc-number">3.2.11.</span> <span class="toc-text">cycle time example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PipeLine"><span class="toc-number">3.3.</span> <span class="toc-text">PipeLine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-idea-of-pipeline"><span class="toc-number">3.3.1.</span> <span class="toc-text">Basic idea of pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RISC-V-Pipelined-Datapath"><span class="toc-number">3.3.2.</span> <span class="toc-text">RISC-V Pipelined Datapath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipeline-Control"><span class="toc-number">3.3.3.</span> <span class="toc-text">Pipeline Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer-size"><span class="toc-number">3.3.4.</span> <span class="toc-text">Buffer size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Hazards"><span class="toc-number">3.3.5.</span> <span class="toc-text">Data Hazards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handle-Data-Hazards"><span class="toc-number">3.3.6.</span> <span class="toc-text">Handle Data Hazards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-identify-all-dependence"><span class="toc-number">3.3.7.</span> <span class="toc-text">How to identify all dependence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Forwarding"><span class="toc-number">3.3.8.</span> <span class="toc-text">Forwarding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Detecting-the-need-to-Forward"><span class="toc-number">3.3.8.1.</span> <span class="toc-text">Detecting the need to Forward</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#summary-forwarding-conditions"><span class="toc-number">3.3.8.2.</span> <span class="toc-text">summary-forwarding conditions</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Bug-Double-Data-Hazard"><span class="toc-number">3.3.9.</span> <span class="toc-text">A Bug: Double Data Hazard</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
