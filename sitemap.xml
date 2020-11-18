@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2020/10/13/Computer-Architecture/</loc>
     
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     
   </url>
   
@@ -53,7 +53,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,21 +61,21 @@
   
   <url>
     <loc>http://example.com/tags/SCU-Campus/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/algorithm/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/iOS/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -84,14 +84,14 @@
   
   <url>
     <loc>http://example.com/categories/leetcode/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/iOS/</loc>
-    <lastmod>2020-11-12</lastmod>
+    <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
