@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/Leetcode/BIT.jpg">
 <meta property="article:published_time" content="2020-10-15T15:56:11.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:54:43.044Z">
+<meta property="article:modified_time" content="2020-12-15T01:55:04.825Z">
 <meta property="article:author" content="Dylan Liu">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -738,8 +738,24 @@ public List&lt;Boolean&gt; areConnected(int n, int threshold, int[][] queries) &
 <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/create-sorted-array-through-instructions/">Leetcode 1649</a></p>
 <p><img src="/img/Leetcode/BIT.jpg" alt="Instruction"> </p>
 <h3 id="coding-implement"><a href="#coding-implement" class="headerlink" title="coding implement"></a>coding implement</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">	int n &#x3D; input.length;</span><br><span class="line">	int[] bits &#x3D; new int[n];</span><br><span class="line">	private void update(int idx, int delta) &#123;</span><br><span class="line">        while (idx &lt;&#x3D; bits.length) &#123;</span><br><span class="line">            bits[idx]+&#x3D; delta;</span><br><span class="line">            idx +&#x3D; (idx &amp; -idx);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    private int get(int delta) &#123;</span><br><span class="line">        int res &#x3D; 0;</span><br><span class="line">        while (delta &gt; 0) &#123;</span><br><span class="line">            res +&#x3D; bits[delta];</span><br><span class="line">            delta -&#x3D; (delta &amp; -delta);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## SeagmentTree </span><br><span class="line">[Leetcode 307](https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;range-sum-query-mutable&#x2F;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### coding implement</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>class SeagmentTree {<br>        SeagmentTree left;<br>        SeagmentTree right;<br>        int val;<br>        int start;<br>        int end;<br>        public SeagmentTree(int val, int start, int end){<br>            this.val = val;<br>            this.start = start;<br>            this.end = end;<br>        }<br>}<br>    SeagmentTree root;<br>    public NumArray(int[] nums) {<br>        root = buildTree(nums, 0, nums.length - 1);<br>    }</p>
-<pre><code>private SeagmentTree buildTree(int[] nums, int start, int end) &#123;
+<pre><code>class SeagmentTree &#123;
+    SeagmentTree left;
+    SeagmentTree right;
+    int val;
+    int start;
+    int end;
+    public SeagmentTree(int val, int start, int end)&#123;
+        this.val = val;
+        this.start = start;
+        this.end = end;
+    &#125;
+&#125;
+SeagmentTree root;
+public NumArray(int[] nums) &#123;
+    root = buildTree(nums, 0, nums.length - 1);
+&#125;
+
+private SeagmentTree buildTree(int[] nums, int start, int end) &#123;
     if (start &gt; end) return null;
     SeagmentTree root = new SeagmentTree(nums[start], start, end);
     if (start != end)  &#123;
@@ -783,7 +799,7 @@ private void updateSub(SeagmentTree root, int idx, int val) &#123;
         <p><span>Title:</span><a href="/2020/10/15/Leetcode/">Leetcode</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2020-10-15, 08:56:11</p>
-        <p><span>Updated:</span>2020-12-14, 17:54:43</p>
+        <p><span>Updated:</span>2020-12-14, 17:55:04</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2020/10/15/Leetcode/" title="Leetcode">http://example.com/2020/10/15/Leetcode/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2020/10/15/Leetcode/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
