@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-28T23:05:33.703Z</updated>
+  <updated>2021-01-15T00:22:57.668Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ObjOrientAnalysisDesProg</title>
+    <link href="http://example.com/2021/01/14/ObjOrientAnalysisDesProg/"/>
+    <id>http://example.com/2021/01/14/ObjOrientAnalysisDesProg/</id>
+    <published>2021-01-14T23:39:20.000Z</published>
+    <updated>2021-01-15T00:22:57.668Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Introduction</strong> Take notes for the Obj Orient Analysis Des Prog and write down the knowledge points in each chapter  </p><a id="more"></a><h1 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h1><h2 id="Use-case"><a href="#Use-case" class="headerlink" title="Use case"></a>Use case</h2><h3 id="The-relationship-in-use-case-diagram"><a href="#The-relationship-in-use-case-diagram" class="headerlink" title="The relationship in use case diagram"></a>The relationship in use case diagram</h3><h4 id="include"><a href="#include" class="headerlink" title="include"></a>include</h4><p><img src="/img/Obj/01.jpg" alt="Instruction"><br>a case include another case</p><h4 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h4><p><img src="/img/Obj/02.jpg" alt="Instruction"><br>the case is optional<br>it will be excuated under some requirement</p><h4 id="generalization-泛化"><a href="#generalization-泛化" class="headerlink" title="generalization(泛化)"></a>generalization(泛化)</h4><p><img src="/img/Obj/03.jpg" alt="Instruction"><br>fater case and son case</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt; Take notes for the Obj Orient Analysis Des Prog and write down the knowledge points in each chapter  &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="SCU, Campus" scheme="http://example.com/tags/SCU-Campus/"/>
+    
+  </entry>
   
   <entry>
     <title>MobileDevelopment</title>
