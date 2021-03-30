@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-15T00:22:57.668Z</updated>
+  <updated>2021-03-30T03:06:54.935Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Software management</title>
+    <link href="http://example.com/2021/03/29/Software-management/"/>
+    <id>http://example.com/2021/03/29/Software-management/</id>
+    <published>2021-03-30T03:00:10.000Z</published>
+    <updated>2021-03-30T03:06:54.935Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Introduction</strong> Take notes for the software management and write down the knowledge points in each chapter  </p><a id="more"></a><h1 id="Software-Management"><a href="#Software-Management" class="headerlink" title="Software Management"></a>Software Management</h1><h2 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h2><p><strong>Engineering Problem</strong><br><img src="/img/SoftwareManagement/1_01.jpg"><br><img src="/img/SoftwareManagement/1_02.jpg"><br><strong>Software Management Process</strong><br><img src="/img/SoftwareManagement/1_03.jpg"><br><img src="/img/SoftwareManagement/1_04.jpg">  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt; Take notes for the software management and write down the knowledge points in each chapter  &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="SCU, Campus" scheme="http://example.com/tags/SCU-Campus/"/>
+    
+  </entry>
   
   <entry>
     <title>ObjOrientAnalysisDesProg</title>
