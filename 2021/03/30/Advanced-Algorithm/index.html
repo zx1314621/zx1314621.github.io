@@ -25,8 +25,11 @@
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_01.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_02.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_03.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_04.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_05.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_06.jpg">
 <meta property="article:published_time" content="2021-03-31T00:35:04.000Z">
-<meta property="article:modified_time" content="2021-03-31T17:10:35.522Z">
+<meta property="article:modified_time" content="2021-04-02T23:10:01.248Z">
 <meta property="article:author" content="Dylan Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/AdvancedAlgorithm/1_01.jpg">
@@ -326,8 +329,60 @@
 <h2 id="primarily-testing"><a href="#primarily-testing" class="headerlink" title="primarily testing"></a>primarily testing</h2><p><strong>problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_02.jpg"><br><strong>brute-force solution</strong><br><img src="/img/AdvancedAlgorithm/1_03.jpg">  </p>
 <p>Q &amp; A:  </p>
 <ol>
-<li>why the loop is from 2 to √n<br>A prime number is a number that is not divisible by any number other than itself and 1. Therefore, we start from 2. And this loop is to check whether there is a pair p * q = n = √n * √n, therefore, the smaller one in p and q musct smaller or equal than √n. So the iteration from 2 to √n will cover all possibilities.</li>
+<li><p>why the loop is from 2 to √n<br>A prime number is a number that is not divisible by any number other than itself and 1. Therefore, we start from 2. And this loop is to check whether there is a pair p * q = n = √n * √n, therefore, the smaller one in p and q musct smaller or equal than √n. So the iteration from 2 to √n will cover all possibilities.</p>
+</li>
+<li><p>why √N = 2<sup>(lg(N)/2)</sup><br>√N = 2<sup>(lg(√N))</sup> = 2<sup>(lg (N<sup>1/2</sup>))</sup> = 2<sup>(1/2*lg(N))</sup></p>
+</li>
+<li><p>why (√2)<sup>lgN</sup> = √2<sup>n</sup><br>n is the binary bit of this N</p>
+</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th align="center">N</th>
+<th align="center">lgN + 1</th>
+<th align="center">n</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">lg1 + 1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">lg2 + 1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">lg3 + 1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">lg4 + 1</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">lg5 + 1</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+<p>And let’s think of lgN + 1 as lgN, we dismiss plus 1 here where N is big enough.</p>
+<ol start="4">
+<li>why this algorithm is exponential?<br>the running time is θ((√2)<sup>n</sup>), n is the bit of value N, and we look n here is input size. Therefore, the running time is exponential.</li>
+</ol>
+<h2 id="dictionary-problem"><a href="#dictionary-problem" class="headerlink" title="dictionary problem"></a>dictionary problem</h2><p><strong>problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_04.jpg"> </p>
+<p><strong>O(1) Time &amp; O(n) Space solution</strong><br><img src="/img/AdvancedAlgorithm/1_05.jpg">  </p>
+<p><strong>BST solution</strong><br><img src="/img/AdvancedAlgorithm/1_06.jpg"><br><strong>note</strong><br>BST: binary serach tree, quite slow in reality.<br>2-3 Tree: a tree whose nodes can have two or three children nodes. Hard to implement.  </p>
+<p><strong>New solution</strong> </p>
+<ul>
+<li>splay tree: amortized BST<br>When a node x is accessed, a splay operation is performed on x to move it to the root. To perform a splay operation we carry out a sequence of splay steps, each of which moves x closer to the root. By performing a splay operation on the node of interest after every access, the recently accessed nodes are kept near the root and the tree remains roughly balanced, so that we achieve the desired amortized time bounds.</li>
+<li>treaps: randomized BST<br>Treap = Tree + Heap. Treap itself is a binary search tree, its left subtree and the right subtree are also a Treap, and the common binary search tree is different, Treap records an additional data, is the priority. Treap not only forms a binary search tree with key codes, but also satisfies the property of heap. Treap’s approach to maintaining heap properties uses rotations, which require only two rotations and are less programming complicated than Splay’s.</li>
+<li>skip lists: randomized linked lists</li>
+</ul>
 
       
     </div>
@@ -339,7 +394,7 @@
         <p><span>Title:</span><a href="/2021/03/30/Advanced-Algorithm/">Advanced Algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-03-30, 17:35:04</p>
-        <p><span>Updated:</span>2021-03-31, 10:10:35</p>
+        <p><span>Updated:</span>2021-04-02, 16:10:01</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/03/30/Advanced-Algorithm/" title="Advanced Algorithm">http://example.com/2021/03/30/Advanced-Algorithm/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2021/03/30/Advanced-Algorithm/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -369,7 +424,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Advanced-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Advanced Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course-preview"><span class="toc-number">1.1.</span> <span class="toc-text">Course preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#primarily-testing"><span class="toc-number">1.2.</span> <span class="toc-text">primarily testing</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Advanced-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Advanced Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course-preview"><span class="toc-number">1.1.</span> <span class="toc-text">Course preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#primarily-testing"><span class="toc-number">1.2.</span> <span class="toc-text">primarily testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dictionary-problem"><span class="toc-number">1.3.</span> <span class="toc-text">dictionary problem</span></a></li></ol></li></ol>
         
     </div>
     <style>
