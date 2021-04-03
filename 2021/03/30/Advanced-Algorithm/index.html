@@ -29,8 +29,12 @@
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_05.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_06.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_07.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_08.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_09.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_10.jpg">
+<meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/1_11.jpg">
 <meta property="article:published_time" content="2021-03-31T00:35:04.000Z">
-<meta property="article:modified_time" content="2021-04-03T02:22:23.111Z">
+<meta property="article:modified_time" content="2021-04-03T23:46:07.622Z">
 <meta property="article:author" content="Dylan Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/AdvancedAlgorithm/1_01.jpg">
@@ -327,7 +331,7 @@
 <li>randomized algorithms: have access to a random source    </li>
 <li>amortized analysis: worst-case analysis of a sequence of operations  </li>
 </ul>
-<h2 id="primarily-testing"><a href="#primarily-testing" class="headerlink" title="primarily testing"></a>primarily testing</h2><p><strong>problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_02.jpg"><br><strong>brute-force solution</strong><br><img src="/img/AdvancedAlgorithm/1_03.jpg">  </p>
+<h2 id="Primarily-Testing"><a href="#Primarily-Testing" class="headerlink" title="Primarily Testing"></a>Primarily Testing</h2><p><strong>Problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_02.jpg"><br><strong>brute-force solution</strong><br><img src="/img/AdvancedAlgorithm/1_03.jpg">  </p>
 <p>Q &amp; A:  </p>
 <ol>
 <li><p>why the loop is from 2 to √n<br>A prime number is a number that is not divisible by any number other than itself and 1. Therefore, we start from 2. And this loop is to check whether there is a pair p * q = n = √n * √n, therefore, the smaller one in p and q musct smaller or equal than √n. So the iteration from 2 to √n will cover all possibilities.</p>
@@ -375,7 +379,7 @@
 <ol start="4">
 <li>why this algorithm is exponential?<br>the running time is θ((√2)<sup>n</sup>), n is the bit of value N, and we look n here is input size. Therefore, the running time is exponential.</li>
 </ol>
-<h2 id="dictionary-problem"><a href="#dictionary-problem" class="headerlink" title="dictionary problem"></a>dictionary problem</h2><p><strong>problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_04.jpg"> </p>
+<h2 id="Dictionary-Problem"><a href="#Dictionary-Problem" class="headerlink" title="Dictionary Problem"></a>Dictionary Problem</h2><p><strong>Problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_04.jpg">  </p>
 <p><strong>O(1) Time &amp; O(n) Space solution</strong><br><img src="/img/AdvancedAlgorithm/1_05.jpg">  </p>
 <p><strong>BST solution</strong><br><img src="/img/AdvancedAlgorithm/1_06.jpg"><br><strong>note</strong><br>BST: binary serach tree, quite slow in reality.<br>2-3 Tree: a tree whose nodes can have two or three children nodes. Hard to implement.  </p>
 <p><strong>New solution</strong> </p>
@@ -390,6 +394,36 @@
 <li>in the below list, 7 == 7, search success!</li>
 </ol>
 <p>In general, Skiplist stores additional intermediate information for binary lookups</p>
+<h2 id="Minimum-Spanning-Trees"><a href="#Minimum-Spanning-Trees" class="headerlink" title="Minimum Spanning Trees"></a>Minimum Spanning Trees</h2><p><strong>Problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_08.jpg"><br><strong>connect all nodes, no cycle, minimum weight</strong></p>
+<h3 id="Kruskal-algorithm"><a href="#Kruskal-algorithm" class="headerlink" title="Kruskal algorithm"></a>Kruskal algorithm</h3><p><strong>Algorithm introduction</strong><br>sort weight ascendingly, iterate every edge, if the nodes on the edge is in different group, use this edge and let one node join the other.</p>
+<h3 id="Prim-algorithm"><a href="#Prim-algorithm" class="headerlink" title="Prim algorithm"></a>Prim algorithm</h3><p><strong>Algorithm introduction</strong>  </p>
+<ol>
+<li><p>Add one node to the set V</p>
+</li>
+<li><p>while(not all nodes in set V) {  </p>
+<ul>
+<li>find the least weighted edge from the nodes in the set V to the nodes outside the set  </li>
+<li>then add this edge and this outer node to the set V<br>}</li>
+</ul>
+</li>
+</ol>
+<h3 id="Disjoint-set"><a href="#Disjoint-set" class="headerlink" title="Disjoint set"></a>Disjoint set</h3><p>alias: Union-find</p>
+<h3 id="Fibonacci-heap"><a href="#Fibonacci-heap" class="headerlink" title="Fibonacci heap"></a>Fibonacci heap</h3><p>A Fibonacci heap is a collection of trees satisfying the minimum-heap property, that is, the key of a child is always greater than or equal to the key of the parent. This implies that the minimum key is always at the root of one of the trees.</p>
+<h2 id="String-Matching"><a href="#String-Matching" class="headerlink" title="String Matching"></a>String Matching</h2><p><strong>Problem defination</strong><br><img src="/img/AdvancedAlgorithm/1_09.jpg">  </p>
+<h3 id="Classic-solutions"><a href="#Classic-solutions" class="headerlink" title="Classic solutions"></a>Classic solutions</h3><ul>
+<li>variations of brute-force algorithm, θ(mn);</li>
+<li>KMP(Knuth-Morris-Pratt) algorith, first θ(m + n);</li>
+<li>Boyer-Moore is the fastest in practice;</li>
+<li>Karp-Rabin runs in expected θ(n+m);</li>
+<li>Z algorithm a new preprocessing technique that underlies both KMP and BM;</li>
+<li>These modifications preprocess the pattern;</li>
+</ul>
+<h2 id="Generating-Random-Sequences-Of-Integers"><a href="#Generating-Random-Sequences-Of-Integers" class="headerlink" title="Generating Random Sequences Of Integers"></a>Generating Random Sequences Of Integers</h2><h3 id="Desirable-properites-of-rand-n"><a href="#Desirable-properites-of-rand-n" class="headerlink" title="Desirable properites of rand(n)"></a>Desirable properites of rand(n)</h3><ul>
+<li>not truly random, but only appears random according to various statistical tests(such as equal number of 0, …, n - 1 in a long generated sequence)</li>
+<li>efficiently computable and determinstic(reproducible)</li>
+</ul>
+<h3 id="Computing-∏-using-rand"><a href="#Computing-∏-using-rand" class="headerlink" title="Computing ∏ using rand()"></a>Computing ∏ using rand()</h3><p><img src="/img/AdvancedAlgorithm/1_10.jpg">   </p>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p><img src="/img/AdvancedAlgorithm/1_11.jpg">   </p>
 
       
     </div>
@@ -401,7 +435,7 @@
         <p><span>Title:</span><a href="/2021/03/30/Advanced-Algorithm/">Advanced Algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-03-30, 17:35:04</p>
-        <p><span>Updated:</span>2021-04-02, 19:22:23</p>
+        <p><span>Updated:</span>2021-04-03, 16:46:07</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/03/30/Advanced-Algorithm/" title="Advanced Algorithm">http://example.com/2021/03/30/Advanced-Algorithm/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2021/03/30/Advanced-Algorithm/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -431,7 +465,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Advanced-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Advanced Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course-preview"><span class="toc-number">1.1.</span> <span class="toc-text">Course preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#primarily-testing"><span class="toc-number">1.2.</span> <span class="toc-text">primarily testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dictionary-problem"><span class="toc-number">1.3.</span> <span class="toc-text">dictionary problem</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Advanced-Algorithm"><span class="toc-number">1.</span> <span class="toc-text">Advanced Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Course-preview"><span class="toc-number">1.1.</span> <span class="toc-text">Course preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Primarily-Testing"><span class="toc-number">1.2.</span> <span class="toc-text">Primarily Testing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dictionary-Problem"><span class="toc-number">1.3.</span> <span class="toc-text">Dictionary Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Minimum-Spanning-Trees"><span class="toc-number">1.4.</span> <span class="toc-text">Minimum Spanning Trees</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kruskal-algorithm"><span class="toc-number">1.4.1.</span> <span class="toc-text">Kruskal algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prim-algorithm"><span class="toc-number">1.4.2.</span> <span class="toc-text">Prim algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disjoint-set"><span class="toc-number">1.4.3.</span> <span class="toc-text">Disjoint set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fibonacci-heap"><span class="toc-number">1.4.4.</span> <span class="toc-text">Fibonacci heap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Matching"><span class="toc-number">1.5.</span> <span class="toc-text">String Matching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Classic-solutions"><span class="toc-number">1.5.1.</span> <span class="toc-text">Classic solutions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generating-Random-Sequences-Of-Integers"><span class="toc-number">1.6.</span> <span class="toc-text">Generating Random Sequences Of Integers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Desirable-properites-of-rand-n"><span class="toc-number">1.6.1.</span> <span class="toc-text">Desirable properites of rand(n)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Computing-%E2%88%8F-using-rand"><span class="toc-number">1.6.2.</span> <span class="toc-text">Computing ∏ using rand()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">1.6.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
