@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/5_23.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/5_24.jpg">
 <meta property="article:published_time" content="2021-03-31T00:35:04.000Z">
-<meta property="article:modified_time" content="2021-04-18T22:47:03.758Z">
+<meta property="article:modified_time" content="2021-04-18T22:50:48.836Z">
 <meta property="article:author" content="Dylan Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/AdvancedAlgorithm/1_01.jpg">
@@ -659,14 +659,14 @@ However, from real running in reality, the running time of m increments is 2m bi
 <h5 id="Pop"><a href="#Pop" class="headerlink" title="Pop"></a>Pop</h5><p><img src="/img/AdvancedAlgorithm/5_13.jpg">  </p>
 <h4 id="Traditional-Analysis-1"><a href="#Traditional-Analysis-1" class="headerlink" title="Traditional Analysis"></a>Traditional Analysis</h4><p><img src="/img/AdvancedAlgorithm/5_14.jpg"><br>    The worst running time of one operation is linear of array size<br>    The worst running time of m operations is ∑(i= 1 to m) i = φ(m<sup>2</sup>)<br>    However, from real running in reality, the running time of m operations is linear in array size  </p>
 <h4 id="Amortized-Analysis-2"><a href="#Amortized-Analysis-2" class="headerlink" title="Amortized Analysis"></a>Amortized Analysis</h4><h5 id="Example-m-pushes"><a href="#Example-m-pushes" class="headerlink" title="Example: m pushes"></a>Example: m pushes</h5><h6 id="Aggregate-counting-1"><a href="#Aggregate-counting-1" class="headerlink" title="Aggregate counting"></a>Aggregate counting</h6><p><img src="/img/AdvancedAlgorithm/5_15.jpg"><br><strong>Q&amp;A</strong>  </p>
-<ul>
+<ol>
 <li><p>Why we use lg(m) rather than lg(m-1) here, Two to the power doesn’t need any new expansion?<br>Because we calculate upper bound here. It just use lg(m) for convenience.  </p>
 </li>
 <li><p>∑(k=1 to m)1 + ∑(k=0 to ⌊lg(m)⌋) 2<sup>k</sup> = m + 2<sup>1+⌊lg(m)⌋</sup> - 2<sup>0</sup> &lt; 3m?  </p>
-<p>  ∑(k=0 to ⌊lg(m)⌋) 2<sup>k</sup> = 1*(1-2<sup>lg(m) + 1</sup>)/(1-2) = 2<sup>lg(m) + 1</sup> - 1. </p>
-<p>  2<sup>lg(m) + 1</sup> - 1  = 2*2<sup>lg(m)</sup> - 1= 2m - 1</p>
+<p> ∑(k=0 to ⌊lg(m)⌋) 2<sup>k</sup> = 1*(1-2<sup>lg(m) + 1</sup>)/(1-2) = 2<sup>lg(m) + 1</sup> - 1. </p>
+<p> 2<sup>lg(m) + 1</sup> - 1  = 2*2<sup>lg(m)</sup> - 1= 2m - 1</p>
 </li>
-</ul>
+</ol>
 <h6 id="Funny-accounting-1"><a href="#Funny-accounting-1" class="headerlink" title="Funny accounting"></a>Funny accounting</h6><p><img src="/img/AdvancedAlgorithm/5_16.jpg">  </p>
 <h6 id="Potential-function-1"><a href="#Potential-function-1" class="headerlink" title="Potential function"></a>Potential function</h6><p><strong>φ here mean the change in the credits we have in i<sub>th</sub> push</strong><br><img src="/img/AdvancedAlgorithm/5_17.jpg"><br><img src="/img/AdvancedAlgorithm/5_18.jpg">  </p>
 <h5 id="Example-general-case-of-m-push-pop-operations"><a href="#Example-general-case-of-m-push-pop-operations" class="headerlink" title="Example: general case of m push/pop operations"></a>Example: general case of m push/pop operations</h5><h6 id="Potential-function-2"><a href="#Potential-function-2" class="headerlink" title="Potential function"></a>Potential function</h6><p><strong>φ here mean the change in the credits we have in i<sub>th</sub> push/pop</strong><br><img src="/img/AdvancedAlgorithm/5_19.jpg"><br><img src="/img/AdvancedAlgorithm/5_20.jpg">  </p>
@@ -687,7 +687,7 @@ However, from real running in reality, the running time of m increments is 2m bi
         <p><span>Title:</span><a href="/2021/03/30/Advanced-Algorithm/">Advanced Algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-03-30, 17:35:04</p>
-        <p><span>Updated:</span>2021-04-18, 15:47:03</p>
+        <p><span>Updated:</span>2021-04-18, 15:50:48</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/03/30/Advanced-Algorithm/" title="Advanced Algorithm">http://example.com/2021/03/30/Advanced-Algorithm/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2021/03/30/Advanced-Algorithm/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
