@@ -121,7 +121,7 @@
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/6_03.jpg">
 <meta property="og:image" content="http://example.com/img/AdvancedAlgorithm/6_04.jpg">
 <meta property="article:published_time" content="2021-03-31T00:35:04.000Z">
-<meta property="article:modified_time" content="2021-04-19T18:23:39.884Z">
+<meta property="article:modified_time" content="2021-04-19T18:26:21.765Z">
 <meta property="article:author" content="Dylan Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/AdvancedAlgorithm/1_01.jpg">
@@ -683,7 +683,7 @@ However, from real running in reality, the running time of m increments is 2m bi
 <h1 id="UNIVERSAL-HASHING"><a href="#UNIVERSAL-HASHING" class="headerlink" title="UNIVERSAL HASHING"></a>UNIVERSAL HASHING</h1><h2 id="Dictionary-Problem-1"><a href="#Dictionary-Problem-1" class="headerlink" title="Dictionary Problem"></a>Dictionary Problem</h2><h3 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition"></a>Problem Definition</h3><p><img src="/img/AdvancedAlgorithm/6_01.jpg" alt="definition">  </p>
 <h3 id="Royal-Solution-Use-An-Array-Of-Size-NKEYS"><a href="#Royal-Solution-Use-An-Array-Of-Size-NKEYS" class="headerlink" title="Royal Solution: Use An Array Of Size NKEYS"></a>Royal Solution: Use An Array Of Size NKEYS</h3><h4 id="Implementation-3"><a href="#Implementation-3" class="headerlink" title="Implementation"></a>Implementation</h4><p><img src="/img/AdvancedAlgorithm/6_02.jpg" alt="royal solution">  </p>
 <h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h4><p><img src="/img/AdvancedAlgorithm/6_03.jpg" alt="analysis"><br><strong>11.1-4</strong><br>We wish to implement a dictionary by using direct addressing on a huge array. At the start, the array entries may contain garbage, and initializing the entire array is impractical because of its size. Describe a scheme for implementing a direct- address dictionary on a huge array. Each stored object should use O(1) space; the operations SEARCH, INSERT, and DELETE should take O(1) time each; and initializing the data structure should take O(1) time. (Hint: Use an additional array, treated somewhat like a stack whose size is the number of keys actually stored in the dictionary, to help determine whether a given entry in the huge array is valid or not.)</p>
-<h3 id="Compromise-Solution-Hash-Table"><a href="#Compromise-Solution-Hash-Table" class="headerlink" title="Compromise Solution: Hash Table"></a>Compromise Solution: Hash Table</h3><p><img src="/img/AdvancedAlgorithm/6_04.jpg" alt="hash table">  </p>
+<h3 id="Compromise-Solution-Hash-Table"><a href="#Compromise-Solution-Hash-Table" class="headerlink" title="Compromise Solution: Hash Table"></a>Compromise Solution: Hash Table</h3><p><img src="/img/AdvancedAlgorithm/6_04.jpg" alt="hash table"><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Quadratic_probing">Quadratic_probing</a><br><strong>Double Probing</strong><br>Double hashing is a collision resolving technique in Open Addressed Hash tables. Double hashing uses the idea of applying a second hash function to key when a collision occurs</p>
 
       
     </div>
@@ -695,7 +695,7 @@ However, from real running in reality, the running time of m increments is 2m bi
         <p><span>Title:</span><a href="/2021/03/30/Advanced-Algorithm/">Advanced Algorithm</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-03-30, 17:35:04</p>
-        <p><span>Updated:</span>2021-04-19, 11:23:39</p>
+        <p><span>Updated:</span>2021-04-19, 11:26:21</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/03/30/Advanced-Algorithm/" title="Advanced Algorithm">http://example.com/2021/03/30/Advanced-Algorithm/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2021/03/30/Advanced-Algorithm/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
