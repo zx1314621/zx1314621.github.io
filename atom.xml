@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-08T00:09:56.133Z</updated>
+  <updated>2021-07-03T18:10:59.775Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS</title>
+    <link href="http://example.com/2021/07/03/iOS/"/>
+    <id>http://example.com/2021/07/03/iOS/</id>
+    <published>2021-07-03T18:07:58.000Z</published>
+    <updated>2021-07-03T18:10:59.775Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="exit-the-keyboard"><a href="#exit-the-keyboard" class="headerlink" title="exit the keyboard"></a>exit the keyboard</h2><pre><code>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches     withEvent:(UIEvent *)event &#123;    [self.view endEditing:YES];&#125;</code></pre><h2 id="Add-Target-to-control-component"><a href="#Add-Target-to-control-component" class="headerlink" title="Add Target to control component"></a>Add Target to control component</h2><pre><code>[self.datePicker addTarget:self action:@selector(getInput:) forControlEvents:UIControlEventValueChanged];</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Skills&quot;&gt;&lt;a href=&quot;#Skills&quot; class=&quot;headerlink&quot; title=&quot;Skills&quot;&gt;&lt;/a&gt;Skills&lt;/h1&gt;&lt;h2 id=&quot;exit-the-keyboard&quot;&gt;&lt;a href=&quot;#exit-the-keyboard&quot; c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Advanced Algorithm</title>
