@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-03T18:10:59.775Z</updated>
+  <updated>2021-07-03T18:13:34.485Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2021/07/03/iOS/"/>
     <id>http://example.com/2021/07/03/iOS/</id>
     <published>2021-07-03T18:07:58.000Z</published>
-    <updated>2021-07-03T18:10:59.775Z</updated>
+    <updated>2021-07-03T18:13:34.485Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="exit-the-keyboard"><a href="#exit-the-keyboard" class="headerlink" title="exit the keyboard"></a>exit the keyboard</h2><pre><code>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches     withEvent:(UIEvent *)event &#123;    [self.view endEditing:YES];&#125;</code></pre><h2 id="Add-Target-to-control-component"><a href="#Add-Target-to-control-component" class="headerlink" title="Add Target to control component"></a>Add Target to control component</h2><pre><code>[self.datePicker addTarget:self action:@selector(getInput:) forControlEvents:UIControlEventValueChanged];</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="exit-the-keyboard"><a href="#exit-the-keyboard" class="headerlink" title="exit the keyboard"></a>exit the keyboard</h2><pre><code>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches     withEvent:(UIEvent *)event &#123;    [self.view endEditing:YES];&#125;</code></pre><h2 id="Add-Target-to-control-component"><a href="#Add-Target-to-control-component" class="headerlink" title="Add Target to control component"></a>Add Target to control component</h2><pre><code>[self.datePicker addTarget:self action:@selector(getInput:) forControlEvents:UIControlEventValueChanged];</code></pre><h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><p>set <em>frame</em> after <em>DatePickerStyle</em> to gurantee datepicker in center</p>]]></content>
     
     
       
