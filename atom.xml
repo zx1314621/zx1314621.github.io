@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-03T18:13:34.485Z</updated>
+  <updated>2021-07-08T23:57:43.092Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2021/07/03/iOS/"/>
     <id>http://example.com/2021/07/03/iOS/</id>
     <published>2021-07-03T18:07:58.000Z</published>
-    <updated>2021-07-03T18:13:34.485Z</updated>
+    <updated>2021-07-08T23:57:43.092Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="exit-the-keyboard"><a href="#exit-the-keyboard" class="headerlink" title="exit the keyboard"></a>exit the keyboard</h2><pre><code>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches     withEvent:(UIEvent *)event &#123;    [self.view endEditing:YES];&#125;</code></pre><h2 id="Add-Target-to-control-component"><a href="#Add-Target-to-control-component" class="headerlink" title="Add Target to control component"></a>Add Target to control component</h2><pre><code>[self.datePicker addTarget:self action:@selector(getInput:) forControlEvents:UIControlEventValueChanged];</code></pre><h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><p>set <em>frame</em> after <em>DatePickerStyle</em> to gurantee datepicker in center</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="exit-the-keyboard"><a href="#exit-the-keyboard" class="headerlink" title="exit the keyboard"></a>exit the keyboard</h2><pre><code>- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches     withEvent:(UIEvent *)event &#123;    [self.view endEditing:YES];&#125;</code></pre><h2 id="Add-Target-to-control-component"><a href="#Add-Target-to-control-component" class="headerlink" title="Add Target to control component"></a>Add Target to control component</h2><pre><code>[self.datePicker addTarget:self action:@selector(getInput:) forControlEvents:UIControlEventValueChanged];</code></pre><h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><p>set <em>frame</em> after <em>DatePickerStyle</em> to gurantee datepicker in center</p><h2 id="PickerView"><a href="#PickerView" class="headerlink" title="PickerView"></a>PickerView</h2><h3 id="Implement-UIPickerViewDelegate-amp-UIPickerViewDataSource-in-Interface"><a href="#Implement-UIPickerViewDelegate-amp-UIPickerViewDataSource-in-Interface" class="headerlink" title="Implement UIPickerViewDelegate &amp; UIPickerViewDataSource in Interface"></a>Implement UIPickerViewDelegate &amp; UIPickerViewDataSource in Interface</h3><pre><code>@interface ViewController()&lt;UIPickerViewDelegate, UIPickerViewDataSource&gt;@end</code></pre><h3 id="functions"><a href="#functions" class="headerlink" title="functions"></a>functions</h3><p><strong>component</strong> = cols index<br><strong>row</strong> = rows index</p><ol><li>cols number  </li></ol><p>-(NSInteger)numberOfComponentsInPickerView:<br>2. rows number<br>-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component<br>3. title of every row<br>-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component<br>4. when select each row<br>-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component </p><h3 id="set-delegate"><a href="#set-delegate" class="headerlink" title="set delegate"></a>set delegate</h3><pre><code>self.pickerView.delegate = self;self.pickerView.dataSource = self; </code></pre>]]></content>
     
     
       
