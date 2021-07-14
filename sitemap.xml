@@ -95,14 +95,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/algorithm/</loc>
+    <loc>http://example.com/tags/iOS/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/iOS/</loc>
+    <loc>http://example.com/tags/algorithm/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -111,14 +111,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/leetcode/</loc>
+    <loc>http://example.com/categories/iOS/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/iOS/</loc>
+    <loc>http://example.com/categories/leetcode/</loc>
     <lastmod>2021-07-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
