@@ -405,6 +405,40 @@ self.pageControl.currentPage = offset / width;
 
 @end</code></pre>
 <h2 id="TableView"><a href="#TableView" class="headerlink" title="TableView"></a>TableView</h2><h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p><img src="/img/Ios/01.jpg">  </p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><h4 id="Delete-Row"><a href="#Delete-Row" class="headerlink" title="Delete Row"></a>Delete Row</h4><h5 id="UI-amp-Implementation"><a href="#UI-amp-Implementation" class="headerlink" title="UI &amp; Implementation"></a>UI &amp; Implementation</h5><pre><code>- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return YES;
+&#125;
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+[self.data removeObjectAtIndex:indexPath.row];
+
+[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+&#125;
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return @&quot;改变&quot;;
+&#125;</code></pre>
+<h4 id="Insert-Row"><a href="#Insert-Row" class="headerlink" title="Insert Row"></a>Insert Row</h4><h5 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xubuhang/article/details/67638895">button click</a> </p>
+<h5 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h5><pre><code>-(void) addNew:(UIButton *) button &#123;
+[self.tableView setEditing:YES];
+&#125;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return UITableViewCellEditingStyleInsert;
+&#125;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return YES;
+&#125;
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+if (editingStyle == UITableViewCellEditingStyleDelete) &#123;
+    [self.data removeObjectAtIndex:indexPath.row];
+
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+&#125; else if (editingStyle == UITableViewCellEditingStyleInsert) &#123;
+    [self.data insertObject:@&quot;iPhone&quot; atIndex:indexPath.row];
+
+    //[self.tableView reloadData];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+&#125;
+
+&#125;</code></pre>
 
       
     </div>
