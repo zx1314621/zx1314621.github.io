@@ -439,6 +439,47 @@ if (editingStyle == UITableViewCellEditingStyleDelete) &#123;
 &#125;
 
 &#125;</code></pre>
+<h4 id="Move-Row"><a href="#Move-Row" class="headerlink" title="Move Row"></a>Move Row</h4><h5 id="UI-amp-Implementation-1"><a href="#UI-amp-Implementation-1" class="headerlink" title="UI &amp; Implementation"></a>UI &amp; Implementation</h5><pre><code>- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return YES;
+&#125;
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath &#123;
+NSString *temp = self.data[sourceIndexPath.row];
+[self.data removeObjectAtIndex:sourceIndexPath.row];
+
+[self.data insertObject:temp atIndex:destinationIndexPath.row];
+&#125;</code></pre>
+<h4 id="Index-design"><a href="#Index-design" class="headerlink" title="Index design"></a>Index design</h4><h5 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h5><pre><code>- (NSArray&lt;NSString *&gt; *)sectionIndexTitlesForTableView:(UITableView *)tableView &#123;
+return self.sectionTitles;
+&#125;
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index &#123;
+NSLog(@&quot;%d = %@&quot;, index, title);
+
+return index;
+
+&#125;</code></pre>
+<h4 id="self-design-UITableViewCell"><a href="#self-design-UITableViewCell" class="headerlink" title="self design UITableViewCell"></a>self design UITableViewCell</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fe59f9df206c">click here</a></p>
+<h4 id="static-UITabelView"><a href="#static-UITabelView" class="headerlink" title="static UITabelView"></a>static UITabelView</h4><p><a target="_blank" rel="noopener" href="https://www.derpturkey.com/create-a-static-uitableview-without-storyboards/">click here</a></p>
+<h4 id="Refreshing"><a href="#Refreshing" class="headerlink" title="Refreshing"></a>Refreshing</h4><p>1.</p>
+<pre><code>UIRefreshControl *control = [[UIRefreshControl alloc] init];
+control.attributedTitle = [[NSAttributedString alloc] initWithString:@&quot;refreshing...&quot;];
+control.tintColor = [UIColor redColor];
+
+[control addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+
+self.tableView.refreshControl = control;</code></pre>
+<p>2.</p>
+<pre><code>-(void) refreshTableView &#123;
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2*NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;
+    [self.data insertObject:@&quot;123&quot; atIndex:0];
+
+    [self.tableView reloadData];
+    if ([self.tableView.refreshControl isRefreshing])
+        [self.tableView.refreshControl endRefreshing];
+&#125;);
+&#125; </code></pre>
 
       
     </div>

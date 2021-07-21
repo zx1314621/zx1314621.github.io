@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/Ios/01.jpg">
 <meta property="article:published_time" content="2021-07-03T18:07:58.000Z">
-<meta property="article:modified_time" content="2021-07-15T22:49:57.896Z">
+<meta property="article:modified_time" content="2021-07-21T17:53:53.299Z">
 <meta property="article:author" content="Dylan Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/Ios/01.jpg">
@@ -445,6 +445,47 @@ if (editingStyle == UITableViewCellEditingStyleDelete) &#123;
 &#125;
 
 &#125;</code></pre>
+<h4 id="Move-Row"><a href="#Move-Row" class="headerlink" title="Move Row"></a>Move Row</h4><h5 id="UI-amp-Implementation-1"><a href="#UI-amp-Implementation-1" class="headerlink" title="UI &amp; Implementation"></a>UI &amp; Implementation</h5><pre><code>- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath &#123;
+return YES;
+&#125;
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath &#123;
+NSString *temp = self.data[sourceIndexPath.row];
+[self.data removeObjectAtIndex:sourceIndexPath.row];
+
+[self.data insertObject:temp atIndex:destinationIndexPath.row];
+&#125;</code></pre>
+<h4 id="Index-design"><a href="#Index-design" class="headerlink" title="Index design"></a>Index design</h4><h5 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h5><pre><code>- (NSArray&lt;NSString *&gt; *)sectionIndexTitlesForTableView:(UITableView *)tableView &#123;
+return self.sectionTitles;
+&#125;
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index &#123;
+NSLog(@&quot;%d = %@&quot;, index, title);
+
+return index;
+
+&#125;</code></pre>
+<h4 id="self-design-UITableViewCell"><a href="#self-design-UITableViewCell" class="headerlink" title="self design UITableViewCell"></a>self design UITableViewCell</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fe59f9df206c">click here</a></p>
+<h4 id="static-UITabelView"><a href="#static-UITabelView" class="headerlink" title="static UITabelView"></a>static UITabelView</h4><p><a target="_blank" rel="noopener" href="https://www.derpturkey.com/create-a-static-uitableview-without-storyboards/">click here</a></p>
+<h4 id="Refreshing"><a href="#Refreshing" class="headerlink" title="Refreshing"></a>Refreshing</h4><p>1.</p>
+<pre><code>UIRefreshControl *control = [[UIRefreshControl alloc] init];
+control.attributedTitle = [[NSAttributedString alloc] initWithString:@&quot;refreshing...&quot;];
+control.tintColor = [UIColor redColor];
+
+[control addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+
+self.tableView.refreshControl = control;</code></pre>
+<p>2.</p>
+<pre><code>-(void) refreshTableView &#123;
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2*NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;
+    [self.data insertObject:@&quot;123&quot; atIndex:0];
+
+    [self.tableView reloadData];
+    if ([self.tableView.refreshControl isRefreshing])
+        [self.tableView.refreshControl endRefreshing];
+&#125;);
+&#125; </code></pre>
 
       
     </div>
@@ -456,7 +497,7 @@ if (editingStyle == UITableViewCellEditingStyleDelete) &#123;
         <p><span>Title:</span><a href="/2021/07/03/iOS/">iOS</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-07-03, 11:07:58</p>
-        <p><span>Updated:</span>2021-07-15, 15:49:57</p>
+        <p><span>Updated:</span>2021-07-21, 10:53:53</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/07/03/iOS/" title="iOS">http://example.com/2021/07/03/iOS/</a>
             <span class="copy-path" data-clipboard-text="From http://example.com/2021/07/03/iOS/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -486,7 +527,7 @@ if (editingStyle == UITableViewCellEditingStyleDelete) &#123;
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Skills"><span class="toc-number">1.</span> <span class="toc-text">Skills</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#exit-the-keyboard"><span class="toc-number">1.1.</span> <span class="toc-text">exit the keyboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Target-to-control-component"><span class="toc-number">1.2.</span> <span class="toc-text">Add Target to control component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DatePicker"><span class="toc-number">1.3.</span> <span class="toc-text">DatePicker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PickerView"><span class="toc-number">1.4.</span> <span class="toc-text">PickerView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implement-UIPickerViewDelegate-amp-UIPickerViewDataSource-in-Interface"><span class="toc-number">1.4.1.</span> <span class="toc-text">Implement UIPickerViewDelegate &amp; UIPickerViewDataSource in Interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#functions"><span class="toc-number">1.4.2.</span> <span class="toc-text">functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-delegate"><span class="toc-number">1.4.3.</span> <span class="toc-text">set delegate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ScrollView"><span class="toc-number">1.5.</span> <span class="toc-text">ScrollView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Three-Attributes"><span class="toc-number">1.5.1.</span> <span class="toc-text">Three Attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Important-Delegate-Methods"><span class="toc-number">1.5.2.</span> <span class="toc-text">Important Delegate Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Zoom-related-Method"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Zoom related Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-bottom-line-of-the-most-bottom-component"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Get bottom line of the most bottom component</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-Carousel"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Example Carousel</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TableView"><span class="toc-number">1.6.</span> <span class="toc-text">TableView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Structure"><span class="toc-number">1.6.1.</span> <span class="toc-text">Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function"><span class="toc-number">1.6.2.</span> <span class="toc-text">Function</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Delete-Row"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">Delete Row</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UI-amp-Implementation"><span class="toc-number">1.6.2.1.1.</span> <span class="toc-text">UI &amp; Implementation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Insert-Row"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">Insert Row</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UI"><span class="toc-number">1.6.2.2.1.</span> <span class="toc-text">UI</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#implementation"><span class="toc-number">1.6.2.2.2.</span> <span class="toc-text">implementation</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Skills"><span class="toc-number">1.</span> <span class="toc-text">Skills</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#exit-the-keyboard"><span class="toc-number">1.1.</span> <span class="toc-text">exit the keyboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Target-to-control-component"><span class="toc-number">1.2.</span> <span class="toc-text">Add Target to control component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DatePicker"><span class="toc-number">1.3.</span> <span class="toc-text">DatePicker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PickerView"><span class="toc-number">1.4.</span> <span class="toc-text">PickerView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implement-UIPickerViewDelegate-amp-UIPickerViewDataSource-in-Interface"><span class="toc-number">1.4.1.</span> <span class="toc-text">Implement UIPickerViewDelegate &amp; UIPickerViewDataSource in Interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#functions"><span class="toc-number">1.4.2.</span> <span class="toc-text">functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-delegate"><span class="toc-number">1.4.3.</span> <span class="toc-text">set delegate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ScrollView"><span class="toc-number">1.5.</span> <span class="toc-text">ScrollView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Three-Attributes"><span class="toc-number">1.5.1.</span> <span class="toc-text">Three Attributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Important-Delegate-Methods"><span class="toc-number">1.5.2.</span> <span class="toc-text">Important Delegate Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Zoom-related-Method"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Zoom related Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-bottom-line-of-the-most-bottom-component"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Get bottom line of the most bottom component</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Example-Carousel"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Example Carousel</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TableView"><span class="toc-number">1.6.</span> <span class="toc-text">TableView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Structure"><span class="toc-number">1.6.1.</span> <span class="toc-text">Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function"><span class="toc-number">1.6.2.</span> <span class="toc-text">Function</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Delete-Row"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">Delete Row</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UI-amp-Implementation"><span class="toc-number">1.6.2.1.1.</span> <span class="toc-text">UI &amp; Implementation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Insert-Row"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">Insert Row</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UI"><span class="toc-number">1.6.2.2.1.</span> <span class="toc-text">UI</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#implementation"><span class="toc-number">1.6.2.2.2.</span> <span class="toc-text">implementation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Move-Row"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">Move Row</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#UI-amp-Implementation-1"><span class="toc-number">1.6.2.3.1.</span> <span class="toc-text">UI &amp; Implementation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Index-design"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">Index design</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Methods"><span class="toc-number">1.6.2.4.1.</span> <span class="toc-text">Methods</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-design-UITableViewCell"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">self design UITableViewCell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#static-UITabelView"><span class="toc-number">1.6.2.6.</span> <span class="toc-text">static UITabelView</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Refreshing"><span class="toc-number">1.6.2.7.</span> <span class="toc-text">Refreshing</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
     <style>
